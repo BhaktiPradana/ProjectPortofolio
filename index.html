@@ -22,6 +22,8 @@
   <meta name="twitter:description"
     content="Industrial Engineer specializing in manufacturing optimization, Lean Six Sigma Green Belt, Power BI, and data analytics.">
   <meta name="twitter:image" content="Professional-Bhakti.png">
+  <meta name="theme-color" content="#0B0F19">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Bhakti Pradana Roesyadi","jobTitle":"Senior Continuous Improvement Engineer","description":"Industrial Engineer specializing in manufacturing optimization, Lean Six Sigma, Power BI, and data analytics.","sameAs":["https://www.linkedin.com/in/bhaktipradana/"]}</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -818,13 +820,15 @@
       .about-grid,
       .skills-grid,
       .projects-grid,
+      .projects-grid-new,
       .cta-grid,
       .edu-grid {
         grid-template-columns: 1fr;
       }
 
       .skills-grid,
-      .projects-grid {
+      .projects-grid,
+      .projects-grid-new {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -910,14 +914,67 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    :focus-visible { outline: 3px solid #A5B4FC; outline-offset: 4px; }
+    html { scroll-padding-top: 88px; }
+    section[id] { scroll-margin-top: 88px; }
+    .skip-link { position: fixed; left: 1rem; top: -100px; z-index: 2000; padding: .7rem 1rem; background: var(--accent-primary); color: white; border-radius: 8px; transition: top .2s ease; }
+    .skip-link:focus { top: 1rem; }
+    .scroll-progress { position: fixed; inset: 0 0 auto; height: 3px; width: 0; background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); z-index: 1100; }
+    .menu-icon { display: inline-block; line-height: 1; }
+    .nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
+    .tech-icon, .social-links a, .menu-toggle { min-width: 44px; min-height: 44px; }
+    .card-spotlight { position: relative; isolation: isolate; overflow: hidden; }
+    .card-spotlight::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(129,140,248,.18), transparent 42%); transition: opacity .3s ease; }
+    .card-spotlight > * { position: relative; z-index: 1; }
+    .card-spotlight:hover::before, .card-spotlight:focus-within::before { opacity: 1; }
+    .hero-text h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+    .section-title { font-size: clamp(2rem, 4vw, 2.5rem); }
+    .progress { width: 0 !important; transition: width 1s cubic-bezier(.165,.84,.44,1); }
+    .progress.is-loaded { width: var(--progress-width) !important; }
+    .cert-toolbar { display: grid; grid-template-columns: minmax(180px, .7fr) minmax(220px, 1fr) auto; gap: .75rem; align-items: end; margin: 0 auto 1.5rem; max-width: 900px; }
+    .cert-toolbar label { display: grid; gap: .35rem; color: var(--text-muted); font-size: .8rem; text-align: left; }
+    .cert-toolbar select, .cert-toolbar input { width: 100%; min-height: 44px; padding: .65rem .8rem; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 8px; font: inherit; }
+    .cert-status { align-self: center; margin: 0; font-size: .85rem; white-space: nowrap; }
+    .cert-card.is-hidden { display: none; }
+    .cert-grid.is-collapsed .cert-card:nth-child(n+13) { display: none; }
+    .cert-grid.is-filtered .cert-card,
+    .cert-grid.is-filtered.is-collapsed .cert-card:nth-child(n+13) { display: block; }
+    .cert-grid.is-filtered .cert-card.is-hidden { display: none; }
+    .cert-grid.is-filtered + .cert-actions { display: none; }
+    .cert-actions { display: flex; justify-content: center; margin-top: 1.5rem; }
+    .back-to-top { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 900; width: 46px; height: 46px; border: 1px solid var(--border-color); border-radius: 50%; background: var(--bg-card); color: var(--text-main); cursor: pointer; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity .25s ease, transform .25s ease; }
+    .back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .section-heading-centered { text-align: center; margin: 0 0 3rem; }
+    .conference-list { padding: var(--section-padding); background: rgba(19, 26, 42, 0.3); }
+    .conference-timeline { max-width: 900px; margin: 0 auto; }
+    .experience-list { margin-top: 4rem; }
+    .edu-grid { grid-template-columns: 1.2fr 1fr; gap: 4rem; }
+    .timeline-date { line-height: 1.5; }
+    .timeline-item ul { color: var(--text-muted); font-size: .9rem; padding-left: 1.5rem; margin-bottom: 1.5rem; list-style: disc; line-height: 1.6; }
+    @media (max-width: 768px) {
+      .cert-toolbar { grid-template-columns: 1fr; }
+      .cert-status { white-space: normal; }
+      .nav-links { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+      .nav-links.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+      .nav-links a { width: 100%; }
+      .floating-card { max-width: calc(100vw - 2rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      .fade-up { opacity: 1; transform: none; }
+      .progress { transition: none; }
+    }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <nav>
+  <nav aria-label="Primary navigation">
     <div class="container nav-container">
-      <a href="#" class="logo">
+      <a href="#home" class="logo">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <polyline points="16 18 22 12 16 6"></polyline>
@@ -925,20 +982,22 @@
         </svg>
         Bhakti Pradana<span>.</span>
       </a>
-      <div class="nav-links">
-        <a href="#" class="active">Home</a>
+      <div class="nav-links" id="primary-menu">
+        <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
+        <a href="#conferences">Conference</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
       </div>
-      <button class="menu-toggle">☰</button>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-menu"><span class="menu-icon" aria-hidden="true">☰</span></button>
       <a href="mailto:bhaktipradana24@gmail.com" class="btn btn-primary" style="display: none;">Hire Me ↗</a>
     </div>
   </nav>
 
-  <section class="hero">
+  <main id="main-content">
+  <section id="home" class="hero">
     <div class="container hero-content">
       <div class="hero-text">
         <span class="section-badge">SENIOR Continuous Improvement</span>
@@ -948,8 +1007,8 @@
           Six Sigma with Power BI and data analytics to drive efficiency and operational excellence.
         </p>
         <div class="hero-buttons">
-          <a href="#experience" class="btn btn-primary">View My Work ↗</a>
-          <a href="Project Portofolio _ Bhakti Pradana.pdf" class="btn btn-outline" target="_blank">Download CV ↓</a>
+          <a href="#projects" class="btn btn-primary">View My Work ↗</a>
+          <a href="Project Portofolio _ Bhakti Pradana.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Download CV ↓</a>
         </div>
 
         <div class="tech-stack">
@@ -992,7 +1051,7 @@
       <div class="hero-visual">
         <div class="hero-glow"></div>
         <div class="hero-avatar">
-          <img src="Professional-Bhakti.png" alt="Bhakti Pradana - Industrial & Continuous Improvement Engineer">
+          <img width="1023" height="1537" fetchpriority="high" src="Professional-Bhakti.png" alt="Bhakti Pradana - Industrial & Continuous Improvement Engineer">
         </div>
         <div class="floating-card">
           <div class="code-snippet">
@@ -1019,11 +1078,11 @@
         <p>My core expertise lies in integrating Lean Six Sigma Green Belt methodologies with robust data analytics
           capabilities. This proficiency is consistently used to drive significant improvements in OEE/UPH, optimize WIP
           flow, and substantially reduce material waste.</p>
-        <a href="#education" class="btn btn-outline" style="margin-top: 1rem;">Learn More About Me 👤</a>
+        <a href="#experience" class="btn btn-outline" style="margin-top: 1rem;">Learn More About Me 👤</a>
       </div>
 
       <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card card-spotlight">
           <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -1032,21 +1091,21 @@
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg></div>
           <div class="stat-info">
-            <h4>5+</h4>
+            <h4 data-value="5" data-suffix="+">0+</h4>
             <p>Years Experience</p>
           </div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card card-spotlight">
           <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg></div>
           <div class="stat-info">
-            <h4>100%</h4>
+            <h4 data-value="100" data-suffix="%">0%</h4>
             <p>Data-Driven Focus</p>
           </div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card card-spotlight">
           <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
@@ -1059,7 +1118,7 @@
             <p>Master's Degree</p>
           </div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card card-spotlight">
           <div class="stat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <polygon
@@ -1092,7 +1151,7 @@
             <span style="font-family: var(--font-mono)">85%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 85%"></div>
+            <div class="progress" style="--progress-width: 85%" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Skill proficiency 85 percent"></div>
           </div>
         </div>
 
@@ -1107,7 +1166,7 @@
             <span style="font-family: var(--font-mono)">90%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 90%"></div>
+            <div class="progress" style="--progress-width: 90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Skill proficiency 90 percent"></div>
           </div>
         </div>
 
@@ -1125,7 +1184,7 @@
             <span style="font-family: var(--font-mono)">90%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 90%"></div>
+            <div class="progress" style="--progress-width: 90%" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Skill proficiency 90 percent"></div>
           </div>
         </div>
 
@@ -1142,7 +1201,7 @@
             <span style="font-family: var(--font-mono)">85%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 85%"></div>
+            <div class="progress" style="--progress-width: 85%" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Skill proficiency 85 percent"></div>
           </div>
         </div>
 
@@ -1158,7 +1217,7 @@
             <span style="font-family: var(--font-mono)">80%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 80%"></div>
+            <div class="progress" style="--progress-width: 80%" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Skill proficiency 80 percent"></div>
           </div>
         </div>
 
@@ -1175,7 +1234,7 @@
             <span style="font-family: var(--font-mono)">95%</span>
           </div>
           <div class="progress-bar">
-            <div class="progress" style="width: 95%"></div>
+            <div class="progress" style="--progress-width: 95%" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Skill proficiency 95 percent"></div>
           </div>
         </div>
       </div>
@@ -1189,7 +1248,7 @@
         <h2 class="section-title">Work History</h2>
       </div>
 
-      <div style="margin-top: 4rem;">
+      <div class="experience-list">
 
         <div class="timeline-item">
           <div class="timeline-date">Mar 2026 - Present | Excelitas Technologies Corp.</div>
@@ -1301,10 +1360,7 @@
           </ul>
           <div
             style="background: rgba(99,102,241,0.05); padding: 1rem; border-left: 3px solid var(--accent-primary); margin-top: 1rem;">
-            <p style="color: var(--text-main); font-size: 0.9rem; margin-bottom: 0;"><strong>Conference
-                Speaker:</strong> AI CONVENTION 2024 - "AI for Decision Makers". Shared insights on how AI can drive
-              informed decision-making, enhance strategic planning, and provide valuable insights into AI governance and
-              risk management.</p>
+            <p style="color: var(--text-main); font-size: 0.9rem; margin-bottom: 0;"><strong>Featured contribution:</strong> Shared insights on how AI can drive informed decision-making, enhance strategic planning and forecasting, and support AI governance and risk management for organizations.</p>
           </div>
         </div>
 
@@ -1373,6 +1429,30 @@
     </div>
   </section>
 
+  <section id="conferences" class="conference-list" aria-labelledby="conference-title">
+    <div class="container">
+      <div class="section-heading-centered">
+        <span class="section-badge">CONFERENCES</span>
+        <h2 id="conference-title" class="section-title">Conference & Research</h2>
+      </div>
+
+      <div class="conference-timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Aug 23–24, 2025</div>
+          <h4>International Conference on Biospheric Harmony (ICOBAR) — 7th Edition</h4>
+          <p style="color: var(--text-main)">ICOBAR & FIDI Joint Scientific Forum</p>
+          <p style="font-size: 0.9rem;">Presented the paper <em>“Leveraging Large Language Models in Industry 5.0 Manufacturing Systems for Sustainable Industrial Innovation.”</em> Shared research insights under the theme “Global Synergy for a Sustainable Future.”</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <h4>AI CONVENTION 2024 — AI for Decision Makers</h4>
+          <p style="color: var(--text-main)">Conference Speaker · Continental</p>
+          <p style="font-size: 0.9rem;">Shared how AI can support informed decision-making, strategic planning and forecasting, AI governance, and risk management. Presented <em>GRAILS (Generative AI for Innovative and Lean Solutions)</em>, a Generative AI concept for real-time monitoring, rapid problem detection, actionable recommendations, and continuous learning in manufacturing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="projects" class="projects" style="padding: var(--section-padding);">
     <div class="container">
       <div style="text-align: center; margin-bottom: 4rem;">
@@ -1381,9 +1461,9 @@
       </div>
 
       <div class="projects-grid-new">
-        <div class="project-card project-card-new">
+        <div class="project-card project-card-new card-spotlight">
           <div class="project-img-wrapper">
-            <img src="Daily_Production.jpg" alt="Daily Production">
+            <img loading="lazy" decoding="async" src="Daily_Production.jpg" alt="Daily Production">
           </div>
           <div class="project-content-new">
             <h3>ICT & FCT Hourly Monitoring Service</h3>
@@ -1394,9 +1474,9 @@
           </div>
         </div>
 
-        <div class="project-card project-card-new">
+        <div class="project-card project-card-new card-spotlight">
           <div class="project-img-wrapper">
-            <img src="Engineering_Logistic.jpg" alt="Engineering Logistic">
+            <img loading="lazy" decoding="async" src="Engineering_Logistic.jpg" alt="Engineering Logistic">
           </div>
           <div class="project-content-new">
             <h3>Engineering Logistic Service</h3>
@@ -1407,9 +1487,9 @@
           </div>
         </div>
 
-        <div class="project-card project-card-new">
+        <div class="project-card project-card-new card-spotlight">
           <div class="project-img-wrapper">
-            <img src="HR_Digitalization.jpg" alt="HR Digitalization">
+            <img loading="lazy" decoding="async" src="HR_Digitalization.jpg" alt="HR Digitalization">
           </div>
           <div class="project-content-new">
             <h3>HR Request Digitalization</h3>
@@ -1420,9 +1500,9 @@
           </div>
         </div>
 
-        <div class="project-card project-card-new">
+        <div class="project-card project-card-new card-spotlight">
           <div class="project-img-wrapper">
-            <img src="Inventory_Aging.jpg" alt="Inventory Aging">
+            <img loading="lazy" decoding="async" src="Inventory_Aging.jpg" alt="Inventory Aging">
           </div>
           <div class="project-content-new">
             <h3>Real-time Inventory Aging</h3>
@@ -1433,9 +1513,9 @@
           </div>
         </div>
 
-        <div class="project-card project-card-new">
+        <div class="project-card project-card-new card-spotlight">
           <div class="project-img-wrapper">
-            <img src="Inventory_Production.jpg" alt="Inventory Production">
+            <img loading="lazy" decoding="async" src="Inventory_Production.jpg" alt="Inventory Production">
           </div>
           <div class="project-content-new">
             <h3>Production Supermarket Management</h3>
@@ -1445,9 +1525,9 @@
           </div>
         </div>
 
-        <div class="project-card project-card-new">
+        <div class="project-card project-card-new card-spotlight">
           <div class="project-img-wrapper">
-            <img src="NRE_Tracking.jpg" alt="NRE Tracking">
+            <img loading="lazy" decoding="async" src="NRE_Tracking.jpg" alt="NRE Tracking">
           </div>
           <div class="project-content-new">
             <h3>NRE Input/Output Tracking</h3>
@@ -1457,9 +1537,9 @@
           </div>
         </div>
 
-        <div class="project-card project-card-new">
+        <div class="project-card project-card-new card-spotlight">
           <div class="project-img-wrapper">
-            <img src="Tooling_BuyOff.jpg" alt="Tooling Buy Off">
+            <img loading="lazy" decoding="async" src="Tooling_BuyOff.jpg" alt="Tooling Buy Off">
           </div>
           <div class="project-content-new">
             <h3>Tooling Buy-Off System</h3>
@@ -1480,7 +1560,7 @@
         <h2 class="section-title">Education & Awards</h2>
       </div>
 
-      <div class="edu-grid" style="grid-template-columns: 1.2fr 1fr; gap: 4rem;">
+      <div class="edu-grid">
         <div>
           <h3 style="margin-bottom: 2rem; color: var(--accent-primary);">Academic History</h3>
 
@@ -1545,226 +1625,230 @@
         </div>
       </div>
 
+
+
       <div style="margin-top: 5rem;">
-        <h3 style="margin-bottom: 2rem; color: var(--accent-primary); text-align: center;">Licenses & Certifications
-        </h3>
+        <h3 style="margin-bottom: 2rem; color: var(--accent-primary); text-align: center;">Licenses & Certifications</h3>
 
-        <div class="cert-grid">
+        <div class="cert-toolbar" aria-label="Certification filters"><label for="cert-category">Category<select id="cert-category"><option value="all">All categories</option><option value="project">Project management</option><option value="data">AI & data</option><option value="lean">Lean & manufacturing</option><option value="tools">Software & tools</option></select></label><label for="cert-search">Search certifications<input id="cert-search" type="search" placeholder="Search title or provider" autocomplete="off"></label><p class="cert-status" id="cert-status" aria-live="polite"></p></div><div class="cert-grid is-collapsed" id="certifications">
 
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Agile Project Management with Microsoft Project</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Project Management Foundations</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Scrum: Advanced</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Getting Started with Professional Scrum</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Hybrid Project Management</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Team Coaching Strategies for Project Managers</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Strategic Project Risk Management</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Leading without Formal Authority</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Strategic Communication for Leaders</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Project Management Foundations: Comm.</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Leading Productive Meetings</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Managing Project Stakeholders</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Learning Gantt Charts</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Mastering Project Management</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Project Management Skills for Leaders</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Project Management Foundations: Schedules</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Project Canvas: Project Mgmt Fundamentals</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Project Management Foundations: Quality</h4>
             <p>LinkedIn</p><span>Jul 2026</span>
           </div>
 
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Penggunaan Generative AI</h4>
             <p>Dicoding Indonesia</p><span>Apr 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Practical AI for Productivity</h4>
             <p>Dicoding Indonesia</p><span>Apr 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Data Processing</h4>
             <p>Dicoding Indonesia</p><span>Apr 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Membangun Aplikasi Gen AI (Microsoft Azure)</h4>
             <p>Dicoding Indonesia</p><span>Dec 2025</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Cloud dan Gen AI di AWS</h4>
             <p>Dicoding Indonesia</p><span>Nov 2025</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Cybersecurity (FGA)</h4>
             <p>Digital Talent Scholarship</p><span>Aug 2025</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Microsoft Certified: Azure AI Fundamentals</h4>
             <p>Microsoft</p><span>Jun 2025</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Machine Learning Development</h4>
             <p>Dicoding Indonesia</p><span>Jan 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Machine Learning</h4>
             <p>Dicoding Indonesia</p><span>Nov 2023</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Data Analysis with Python Programming</h4>
             <p>Dicoding Indonesia</p><span>Nov 2023</span>
           </div>
 
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Strategic Thinking Training</h4>
             <p>EasyLlama</p><span>Feb 2026</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Lean Six Sigma Green Belt</h4>
             <p>Kennesaw State University</p><span>Sep 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Microsoft Office Specialist: Excel Associate</h4>
             <p>Microsoft</p><span>Jun 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Project Management</h4>
             <p>Digistar Club</p><span>May 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Factory Planning Process</h4>
             <p>Continental</p><span>Apr 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Analyze data with Power BI</h4>
             <p>Microsoft</p><span>Mar 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Power BI for Data Analyst</h4>
             <p>PRODEMY</p><span>Mar 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Deviation Management in Plants</h4>
             <p>Continental</p><span>Mar 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Automate data cleaning with Power Query</h4>
             <p>Microsoft</p><span>Mar 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Idea management</h4>
             <p>Continental</p><span>Mar 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Jishuken Improvement Methodology</h4>
             <p>Continental</p><span>Feb 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Coaching for Improvement</h4>
             <p>Continental</p><span>Feb 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Production Lean Check</h4>
             <p>Continental</p><span>Jan 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>CBS Operations - VSM & Design</h4>
             <p>Continental</p><span>Jan 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>CBS Operations Pull/Flow</h4>
             <p>Continental</p><span>Jan 2024</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Programming SQL</h4>
             <p>Digital Talent Scholarship</p><span>Sep 2023</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Oracle Certified Database and Programming</h4>
             <p>Oracle</p><span>Dec 2023</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Lean Six Sigma Green Belt</h4>
             <p>Continental</p><span>Sep 2023</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Data Science - SAP Analytics Cloud</h4>
             <p>ASEAN Foundation</p><span>Jul 2023</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Lean Six Sigma Yellow Belt</h4>
             <p>AAPM</p><span>Nov 2022</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Industrial Engineering</h4>
             <p>Panasonic</p><span>Apr 2022</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Pneumatic System</h4>
             <p>BNSP</p><span>Nov 2020</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>Solar Workforce Program</h4>
             <p>Regen Power Pty Ltd</p><span>Dec 2019</span>
           </div>
-          <div class="cert-card">
+          <div class="cert-card card-spotlight">
             <h4>PLC</h4>
             <p>BNSP</p><span>Oct 2019</span>
           </div>
         </div>
+        <div class="cert-actions"><button class="btn btn-outline" id="cert-toggle" type="button" aria-expanded="false" aria-controls="certifications">Show all certifications</button></div>
       </div>
     </div>
   </section>
+
+
 
   <footer class="footer-cta">
     <div class="container cta-grid">
@@ -1793,14 +1877,14 @@
       <div class="contact-info">
         <h4>Follow Me</h4>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/bhaktipradana/" target="_blank" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/bhaktipradana/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
               <rect x="2" y="9" width="4" height="12"></rect>
               <circle cx="4" cy="4" r="2"></circle>
             </svg>
           </a>
-          <a href="https://wa.me/6285331231989" target="_blank" title="WhatsApp">
+          <a href="https://wa.me/6285331231989" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path
                 d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
@@ -1835,75 +1919,116 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Header shadow on scroll
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.5)';
-      } else {
-        nav.style.boxShadow = 'none';
-      }
-    });
-
-    // Mobile navigation toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-      });
-    }
-
-    // Smooth scroll for nav links & close mobile menu on click
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href && href !== '#') {
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            if (navLinks && navLinks.classList.contains('active')) {
-              navLinks.classList.remove('active');
-              if (menuToggle) menuToggle.textContent = '☰';
-            }
-            target.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        }
-      });
-    });
-  </script>
+  </main>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const observerOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
+      const nav = document.querySelector('nav'), menuToggle = document.querySelector('.menu-toggle'),
+            navLinks = document.querySelector('.nav-links'), menuIcon = menuToggle?.querySelector('.menu-icon'),
+            topButton = document.querySelector('.back-to-top'), progressBar = document.querySelector('.scroll-progress');
+      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const setMenu = (open, returnFocus = false) => {
+        navLinks?.classList.toggle('active', open);
+        menuToggle?.setAttribute('aria-expanded', String(open));
+        menuToggle?.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        if (menuIcon) menuIcon.textContent = open ? '✕' : '☰';
+        if (!open && returnFocus) menuToggle?.focus();
+      };
+      menuToggle?.addEventListener('click', () => setMenu(!navLinks.classList.contains('active')));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && navLinks?.classList.contains('active')) setMenu(false, true); });
+      document.addEventListener('click', e => { if (navLinks?.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) setMenu(false); });
+      addEventListener('resize', () => { if (innerWidth > 768) setMenu(false); });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => anchor.addEventListener('click', e => {
+        const href = anchor.getAttribute('href'), target = href && href !== '#' ? document.querySelector(href) : null;
+        if (!target) return; e.preventDefault(); setMenu(false);
+        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+      }));
+
+      const sections = [...document.querySelectorAll('main section[id]')], links = [...document.querySelectorAll('.nav-links a')];
+      const updateActiveSection = () => {
+        const marker = scrollY + nav.offsetHeight + 24;
+        let current = sections[0]?.id;
+        sections.forEach(section => { if (section.offsetTop <= marker) current = section.id; });
+        links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + current));
       };
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      }, observerOptions);
+      const onScroll = () => {
+        const max = document.documentElement.scrollHeight - innerHeight;
+        progressBar.style.width = `${max ? scrollY / max * 100 : 0}%`;
+        nav.style.boxShadow = scrollY > 50 ? '0 4px 20px rgba(0,0,0,.5)' : 'none';
+        topButton.classList.toggle('is-visible', scrollY > 500);
+        updateActiveSection();
+      };
+      addEventListener('scroll', onScroll, { passive: true }); onScroll();
+      topButton?.addEventListener('click', () => scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
 
-      const animatedElements = document.querySelectorAll('.hero-content, .about-text, .stat-card, .skill-item, .project-card, .timeline-item, .cert-card, .cta-text, .testimonial');
+      document.querySelectorAll('.card-spotlight').forEach(card => card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      }));
 
-      animatedElements.forEach((el, index) => {
-        el.classList.add('fade-up');
-        if (el.classList.contains('stat-card') || el.classList.contains('skill-item') || el.classList.contains('cert-card')) {
-          el.style.transitionDelay = `${(index % 4) * 0.1}s`;
-        }
-        observer.observe(el);
+      const animated = document.querySelectorAll('.hero-content, .about-text, .stat-card, .skill-item, .project-card, .timeline-item, .cert-card, .cta-text, .testimonial');
+      const reveal = !reduceMotion && 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); reveal.unobserve(entry.target); }
+      }), { threshold: .15, rootMargin: '0px 0px -50px' }) : null;
+      animated.forEach((el, i) => {
+        if (!reduceMotion) {
+          el.classList.add('fade-up');
+          el.style.transitionDelay = `${i % 4 * .1}s`;
+          if (reveal) reveal.observe(el); else el.classList.add('visible');
+        } else el.classList.add('visible');
       });
+
+      document.querySelectorAll('.progress').forEach(bar => setTimeout(() => bar.classList.add('is-loaded'), reduceMotion ? 0 : 100));
+
+      document.querySelectorAll('[data-value]').forEach(el => {
+        const value = Number(el.dataset.value), suffix = el.dataset.suffix || '';
+        let hasRendered = false;
+        const render = () => {
+          if (hasRendered) return;
+          hasRendered = true;
+          if (reduceMotion || !("IntersectionObserver" in window)) { el.textContent = value + suffix; return; }
+          let n = 0;
+          const step = () => { n = Math.min(value, n + Math.max(1, Math.ceil(value / 20))); el.textContent = n + suffix; if (n < value) requestAnimationFrame(step); };
+          requestAnimationFrame(step);
+        };
+        if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(x => x.isIntersecting && render()), { threshold: .6 }).observe(el);
+        else render();
+      });
+
+      const category = document.querySelector('#cert-category'), search = document.querySelector('#cert-search'),
+            certGrid = document.querySelector('#certifications'), certStatus = document.querySelector('#cert-status'),
+            certToggle = document.querySelector('#cert-toggle'), cards = [...document.querySelectorAll('.cert-card')];
+      const classify = card => {
+        const text = card.textContent.toLowerCase();
+        if (/project|scrum|gantt|stakeholder|meeting|coaching|leadership|strategic/.test(text)) return 'project';
+        if (/ai|data|machine learning|cyber|cloud|python|sql|analytics/.test(text)) return 'data';
+        if (/lean|manufact|factory|production|deviation|vsm|pull|pneumatic|plc|jishuken|plant/.test(text)) return 'lean';
+        return 'tools';
+      };
+      cards.forEach(card => card.dataset.category = classify(card));
+      const updateCerts = () => {
+        const q = search.value.trim().toLowerCase(), cat = category.value; let visible = 0;
+        certGrid.classList.toggle('is-filtered', Boolean(q || cat !== 'all'));
+        cards.forEach(card => {
+          const match = (cat === 'all' || card.dataset.category === cat) && (!q || card.textContent.toLowerCase().includes(q));
+          card.classList.toggle('is-hidden', !match); if (match) visible++;
+        });
+        certStatus.textContent = `${visible} certification${visible === 1 ? '' : 's'} shown`;
+        certToggle.hidden = Boolean(q || cat !== 'all');
+      };
+      category?.addEventListener('change', updateCerts);
+      search?.addEventListener('input', updateCerts);
+      certToggle?.addEventListener('click', () => {
+        const collapsed = certGrid.classList.toggle('is-collapsed');
+        certToggle.setAttribute('aria-expanded', String(!collapsed));
+        certToggle.textContent = collapsed ? 'Show all certifications' : 'Show fewer certifications';
+      });
+      updateCerts();
     });
   </script>
 </body>
